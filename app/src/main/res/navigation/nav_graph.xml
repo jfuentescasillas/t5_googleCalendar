@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/calendarFragment">
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.t5_googlecalendar.presentation.fragment.list.CalendarListFragment"
+        android:label="Google Calendar"
+        tools:layout="@layout/fragment_calendar_list">
+        <action
+            android:id="@+id/action_calendarFragment_to_calendarEventFragment"
+            app:destination="@id/calendarEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calendarEventFragment"
+        android:name="com.example.t5_googlecalendar.presentation.fragment.form.CalendarEventFragment"
+        android:label="My Events"
+        tools:layout="@layout/fragment_calendar_event">
+        <argument
+            android:name="calendarId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_calendarEventFragment_to_eventsFormFragment"
+            app:destination="@id/eventsFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventsFormFragment"
+        android:name="com.example.t5_googlecalendar.presentation.fragment.form.CalendarFormFragment"
+        android:label="Event Form"
+        tools:layout="@layout/fragment_form_event"/>
+</navigation>
